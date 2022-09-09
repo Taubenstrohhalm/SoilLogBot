@@ -3,7 +3,7 @@ import requests
 from datetime import datetime, timedelta
 import pytz
 
-from secrets import SECRETS
+from my_secrets import SECRETS
 
 # sentek - data
 api_key = SECRETS['SENTEK_API']
@@ -54,7 +54,7 @@ if dst:
         time = time - timedelta(hours=2)
 else:
         time = time - timedelta(hours=1)
-time_rfc = time.strftime('%Y-%m-%d-T%H:%M:%SZ')
+time_rfc = time.strftime('%Y-%m-%dT%H:%M:%SZ')
 #print(time_rfc)
 
 measurements = last_line.split(',')[1:] # remove time to get only measurements
